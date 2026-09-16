@@ -1,0 +1,23 @@
+name = "manifest-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Create with: npx wrangler kv namespace create CACHE
+[[kv_namespaces]]
+binding = "CACHE"
+id = "REPLACE_WITH_YOUR_KV_ID"
+
+[vars]
+# Set this to your live site address before going public
+ALLOWED_ORIGINS = "*"
+
+# Secrets, set with `npx wrangler secret put <NAME>`:
+#   COINGECKO_API_KEY   token prices and 24h change
+#   OPENSEA_API_KEY     resolves collections to real OpenSea pages
+#   SUPABASE_URL        allowlist registry
+#   SUPABASE_SERVICE_KEY
+#   ADMIN_TOKEN         required to publish an allowlist
+#
+# BLOCKSCOUT_API_KEY is deliberately NOT set. The public REST API works
+# without one, and the Pro API uses a different URL shape.
